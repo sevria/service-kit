@@ -5,20 +5,28 @@ use tokio::net::TcpListener;
 
 use crate::config::config;
 
-pub struct Server;
+pub struct Server {
+    message: String,
+}
 
 impl Server {
     pub fn new() -> Self {
-        Self
+        Self {
+            message: "Hello, World!".to_string(),
+        }
+    }
+
+    pub fn with_message(mut self, message: &str) -> Self {
+        self.message = message.to_string();
+        self
     }
 
     pub async fn run(&self) -> Result<()> {
         let address = &config().http.address;
         let listener = TcpListener::bind(address).await?;
-        let router = AxumRouter::new().route(
-            "/",
-            get(async || Json(json!({"message": "Hello from service-kit!"}))),
-        );
+        let message = self.message.clone();
+        let router =
+            AxumRouter::new().route("/", get(async move || Json(json!({"message": message}))));
 
         log::info!("Running HTTP server on {address}");
 

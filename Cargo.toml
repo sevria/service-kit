@@ -11,4 +11,5 @@ env_logger = "0.11.11"
 envconfig = "0.11.1"
 log = "0.4.34"
 serde_json = "1.0.151"
+service-kit-macros = { path = "../service-kit-macros" }
 tokio = { version = "1.53.1", features = ["full"] }
