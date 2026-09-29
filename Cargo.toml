@@ -1,0 +1,14 @@
+[package]
+name = "service-kit"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.104"
+axum = "0.8.9"
+dotenvy = "0.15.7"
+env_logger = "0.11.11"
+envconfig = "0.11.1"
+log = "0.4.34"
+serde_json = "1.0.151"
+tokio = { version = "1.53.1", features = ["full"] }
