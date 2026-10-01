@@ -1,7 +1,6 @@
-use anyhow::Result;
-use service_kit::http::Server;
+use service_kit::{Result, Server};
 
-#[tokio::main]
+#[service_kit::main]
 async fn main() -> Result<()> {
     service_kit::bootstrap()?;
 

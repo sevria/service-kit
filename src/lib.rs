@@ -1,8 +1,9 @@
 mod config;
-pub mod http;
+mod http;
 
 pub use anyhow::Result;
 pub use config::config;
+pub use http::Server;
 pub use service_kit_macros::main;
 pub use tokio;
 
